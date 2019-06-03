@@ -5,6 +5,7 @@ using UnityEngine;
 public class Menu : MonoBehaviour {
 
     public string Esencena;
+    public string Marcadores;
 
 	public void Iniciar()
     {
@@ -14,5 +15,9 @@ public class Menu : MonoBehaviour {
     {
         Application.Quit();
     }
+    public void PuntuacionesMaximas()
+    {
+        Application.LoadLevel(Marcadores);
+    } 
 
 }

@@ -13,11 +13,11 @@ public class Hig : MonoBehaviour {
     private float puntuacion;
 	// Use this for initialization
 	void Start () {
-        hig.text = "Primer lugar" + PlayerPrefs.GetFloat("PuntuacionMaxima");
-        hig2.text = "Segundo lugar" + PlayerPrefs.GetFloat("PuntuacionMaxima2");
-        hig3.text = "Tercero lugar" + PlayerPrefs.GetFloat("PuntuacionMaxima3");
-        hig4.text = "Cuarto lugar" + PlayerPrefs.GetFloat("PuntuacionMaxima4");
-        hig5.text = "Quinto lugar" + PlayerPrefs.GetFloat("PuntuacionMaxima5");
+        hig.text = "Primer lugar: " + Mathf.Round(PlayerPrefs.GetFloat("PuntuacionMaxima"));
+        hig2.text = "Segundo lugar: " + Mathf.Round(PlayerPrefs.GetFloat("Segundo"));
+        hig3.text = "Tercero lugar: " + Mathf.Round(PlayerPrefs.GetFloat("Tercero"));
+        hig4.text = "Cuarto lugar: " + Mathf.Round(PlayerPrefs.GetFloat("Cuarto"));
+        hig5.text = "Quinto lugar: " + Mathf.Round(PlayerPrefs.GetFloat("Quinto"));
     }
 	
 	// Update is called once per frame

@@ -10,7 +10,11 @@ public class ManejadorPuntuacion : MonoBehaviour {
     public float PuntajeContador;
     public float PuntajeMaximoContador;
 
-   
+    public float SegundoLugar;
+    public float TercerLugar;
+    public float CuartoLugar;
+    public float QuintoLugar;
+
     public float puntosPorSegundos;
 
     public bool Aumentador;
@@ -19,6 +23,12 @@ public class ManejadorPuntuacion : MonoBehaviour {
 		if(PlayerPrefs.GetFloat("PuntuacionMaxima") != 0)
         {
             PuntajeMaximoContador = PlayerPrefs.GetFloat("PuntuacionMaxima");
+            SegundoLugar = PlayerPrefs.GetFloat("Segundo");
+            TercerLugar = PlayerPrefs.GetFloat("Tercero");
+            CuartoLugar = PlayerPrefs.GetFloat("Cuarto");
+            QuintoLugar = PlayerPrefs.GetFloat("Quinto");
+
+
         }
 	}
 	
@@ -28,10 +38,42 @@ public class ManejadorPuntuacion : MonoBehaviour {
         {
             PuntajeContador += puntosPorSegundos * Time.deltaTime;
         }
-        if (PuntajeContador > PuntajeMaximoContador)
+        if (PuntajeContador >= PuntajeMaximoContador)
         {
             PuntajeMaximoContador = PuntajeContador;
             PlayerPrefs.SetFloat("PuntuacionMaxima", PuntajeMaximoContador);
+        }
+        else if (PuntajeContador < PuntajeMaximoContador)
+        {
+            if (PuntajeContador >= SegundoLugar)
+            {
+                SegundoLugar = PuntajeContador;
+                PlayerPrefs.SetFloat("Segundo", SegundoLugar);
+            }
+            else if (PuntajeContador < SegundoLugar)
+            {
+                if (PuntajeContador >= TercerLugar)
+                {
+                    TercerLugar = PuntajeContador;
+                    PlayerPrefs.SetFloat("Tercero", TercerLugar);
+                }
+                else if (PuntajeContador < TercerLugar)
+                {
+                    if (PuntajeContador >= CuartoLugar)
+                    {
+                        CuartoLugar = PuntajeContador;
+                        PlayerPrefs.SetFloat("Cuarto", CuartoLugar);
+                    }
+                    else if (PuntajeContador < CuartoLugar)
+                    {
+                        if (PuntajeContador >= QuintoLugar)
+                        {
+                            QuintoLugar = PuntajeContador;
+                            PlayerPrefs.SetFloat("Quinto", QuintoLugar);
+                        }
+                    }
+                }
+            }
         }
        
        
